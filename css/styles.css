@@ -3,7 +3,7 @@
 ======================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
+@import url('https://fonts.googleapis.com/css?family=Muli|Open+Sans|Poppins|Raleway|Roboto|Rubik&display=swap');
 
 * {
   box-sizing: border-box;
@@ -16,14 +16,12 @@ body {
 }
 
 body {
-  font-family: "Nunito", sans-serif;
   text-align: center;
-  background: rgba(235, 235, 235, 0.9);
+  font-family: 'Roboto', sans-serif;
+        background: rgba(58, 70, 96, 1);
+            );
 }
 
-header {
-  padding: 15px 5px 5px;
-}
 
 .header-inner-container {
   max-width: 1180px;
@@ -32,10 +30,12 @@ header {
 
 header h1 {
   font-size: 1.25em;
-  color: rgba(50, 50, 50, 0.9);
   margin-top: 35px;
+  color: white;
 }
-
+form {
+  margin: 20px 0;
+}
 .search-input {
   padding: 0.4rem 1rem;
   border: 1px solid rgba(200, 200, 200, 0.9);
@@ -91,17 +91,16 @@ header h1 {
   width: 100%;
   max-width: 360px;
   margin: 10px 10px 20px;
+  background: white;
   padding: 10px;
-  background: rgba(245, 245, 245, 0.9);
-  border-radius: 0.25em;
-  border: 1px solid rgba(50, 50, 50, 0.3);
+  border-radius: .5em;
   transition: 0.4s ease-out;
   overflow: hidden;
   transition: 0.2s ease-in-out;
 }
 
 .card:hover {
-  background: rgb(230, 237, 240);
+  background:  rgb(200, 210, 230);
 }
 
 .card-img {
@@ -198,6 +197,7 @@ header h1 {
   padding: 10px 15px 15px;
   margin: 10px auto auto;
   background: rgba(255, 255, 255, 1);
+  /* background: black; */
   border-radius: 0.25em;
   border: 1px solid rgba(100, 100, 100, 0.3);
 }
@@ -215,6 +215,23 @@ header h1 {
   outline: none;
 }
 
+.modal .next,
+.modal .prev {
+  margin: .5em;
+  border-radius: 3px;
+  font-size: 12px;
+  outline: none;
+  padding: .8em;
+  width: 100px;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+
+
+
+
 /* =====================================
    Media Queries
 ======================================== */
@@ -224,6 +241,13 @@ header h1 {
 ======================================== */
 
 @media (min-width: 768px) {
+
+header {
+  margin: 20px;
+}
+  form {
+    margin: 0;
+  }
   .header-inner-container {
     display: flex;
     flex-direction: row;
@@ -252,10 +276,14 @@ header h1 {
 ======================================== */
 
 @media (min-width: 1024px) {
-  .card:hover {
+
+
+
+
+  /* .card:hover {
     background: rgba(255, 255, 255, 1);
     border: 1px solid rgba(50, 50, 50, 0.9);
-  }
+  } */
 
   .card:hover .card-text {
     color: rgba(25, 25, 25, 1);
