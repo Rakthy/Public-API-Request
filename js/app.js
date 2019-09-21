@@ -1,9 +1,7 @@
 const searchContainer = document.querySelector(".search-container");
 const gallery = document.getElementById("gallery");
 const cards = document.querySelectorAll(".card");
-const modalContainer = document.querySelectorAll("modal-container");
 const modalButton = document.querySelectorAll("modal-close-btn");
-console.log(modalButton);
 
 //fetch function//
 fetch("https://randomuser.me/api/?results=12&nat=us")
@@ -46,6 +44,13 @@ const generateDom = results => {
                 </div> `;
   });
   gallery.innerHTML = html;
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      generateModal();
+      console.log("hi");
+    });
+  });
 };
 
 //append modal//
@@ -77,27 +82,20 @@ const generateModal = result => {
                           <button class="prev">Next</button>
                     </div>
                 </div>`;
-                  modalButton.forEach(button => {
-                    button.addEventListener('click', closeModal);
-                    });
   });
-  document.body.innerHTML += html;
-};
-
-
-const closeModal = (modal) => {
-  modalContainer.forEach(modal => {
-    modal.style.display ='none';
-  });
+  // document.body.innerHTML += html;
+//   const modal = document.querySelector('.modal-container');
+//   const closeBtn = document.querySelector('.modal-close-btn');
+//   closeBtn.addEventListener('click', () => {
+//     modal.style.display = 'none';
+//   });
 };
 
 const modalOpen = () => {
-  cards.forEach(card => {
-
-  });
+  cards.forEach(card => {});
 };
 
-//StackoverFlow Function capitalize first letter of every word//
+//StackoverFlow Function capitalize first letter of every string//
 const capitalize = phrase => {
   return phrase
     .toLowerCase()
