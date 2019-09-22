@@ -1,15 +1,9 @@
 const searchContainer = document.querySelector(".search-container");
 const gallery = document.getElementById("gallery");
-const cards = document.querySelectorAll(".card");
-const modalButton = document.querySelectorAll("modal-close-btn");
 
-//fetch function//
 fetch("https://randomuser.me/api/?results=12&nat=us")
   .then(response => response.json())
-  .then(data => {
-    generateDom(data.results);
-    generateModal(data.results);
-  });
+  .then(data => generateCards(data.results));
 
 //append search input//
 const appendSearchInput = () => {
@@ -23,7 +17,7 @@ const appendSearchInput = () => {
 appendSearchInput();
 
 //card function to generate random employees to DOM//
-const generateDom = results => {
+const generateCards = results => {
   let html = "";
   results.forEach(result => {
     html += `<div class='card'>
@@ -47,17 +41,16 @@ const generateDom = results => {
   const cards = document.querySelectorAll(".card");
   cards.forEach(card => {
     card.addEventListener("click", () => {
-      generateModal();
-      console.log("hi");
+      generateModal(results);
     });
   });
 };
 
 //append modal//
 
-const generateModal = result => {
+const generateModal = results => {
   let html = "";
-  result.forEach(result => {
+  results.forEach(result => {
     html = `  <div class="modal-container">
                 <div class="modal">
                     <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
@@ -83,19 +76,16 @@ const generateModal = result => {
                     </div>
                 </div>`;
   });
-  // document.body.innerHTML += html;
-//   const modal = document.querySelector('.modal-container');
-//   const closeBtn = document.querySelector('.modal-close-btn');
-//   closeBtn.addEventListener('click', () => {
-//     modal.style.display = 'none';
-//   });
+
+  document.body.innerHTML += html;
+  const modal = document.querySelector(".modal-container");
+  const closeBtn = document.querySelector(".modal-close-btn");
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 };
 
-const modalOpen = () => {
-  cards.forEach(card => {});
-};
-
-//StackoverFlow Function capitalize first letter of every string//
+// StackoverFlow Function capitalize first letter of every string//
 const capitalize = phrase => {
   return phrase
     .toLowerCase()
